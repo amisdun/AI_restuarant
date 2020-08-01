@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+<form method="post">
+{{form.hidden_tag()}}
+<br>
+{% if session['option_to_modify']=='dish' %}
+{{form.name.label}} {{form.name()}}
+{% elif session['option_to_modify'] =='dish_type' %}
+{{ form.dish_type.label }} {{form.dish_type()}}
+{% elif session['option_to_modify'] == 'dish_description' %}
+{{form.dish_description.label}}{{form.dish_description()}}
+{% elif session['option_to_modify'] == 'dish_image' %}
+{{form.dish_image.label}}{{form.dish_image()}}
+{% elif session['option_to_modify']=='price' %}
+{{form.price.label}} {{form.price()}}
+{% else %}
+No option chosen!
+{% endif %}
+{{form.submit()}}
+</form>
+
+
+{% endblock %}

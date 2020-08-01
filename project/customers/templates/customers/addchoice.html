@@ -1,0 +1,16 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+<form method="post">
+  {{form.hidden_tag()}}
+  {{form.choice.label()}}{{form.choice()}}
+  {{form.submit()}}
+</form>
+This is your current order: 
+<ul>
+{% for list in customer_dishes %}
+<li>{{customer_dishes.name}}</li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}

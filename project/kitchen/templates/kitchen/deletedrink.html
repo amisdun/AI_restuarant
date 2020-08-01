@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <form method="post">
+    <div class="form-group">
+      {{form.hidden_tag()}}
+      <!-- <label for="dish_list">Please select the dish you want to delete: </label>
+      <select class="form-control" name = "dish">
+        {% for dish in all_drinks %}
+        <option value="{{dish.id}}">{{dish.name}}</option>
+        {% endfor %}
+      </select><br> -->
+      <p class="jumbotron"> Enter the ID of the drink you want to delete: </p>
+        {{form.id.label}}{{form.id()}}
+        {{form.submit()}}
+    </div> </form>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Drink name</th>
+          <th scope="col">Drink type</th>
+          <th scope="col">Drink Description</th>
+          <th scope="col">Image URL</th>
+          <th scope="col">Drink price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for list in all_drinks %}
+        <tr>
+          <th scope="row">{{ list.id}}</th>
+          <td>{{list.name}}</td>
+          <td>{{list.type}}</td>
+          <td>{{list.description}}</td>
+          <td>{{list.image}}</td>
+          <td>{{list.price}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <!--{% if form.id %}
+    {% endif %}-->
+{% endblock %}
+  </body>
+</html>

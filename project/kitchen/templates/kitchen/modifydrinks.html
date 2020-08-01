@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+<form method="post">
+{{form.hidden_tag()}}
+<br>
+{% if session['option_to_modify']=='drink' %}
+{{form.name.label}} {{form.name()}}
+{% elif session['option_to_modify'] =='drink_type' %}
+{{ form.drink_type.label }} {{form.drink_type()}}
+{% elif session['option_to_modify'] == 'drink_description' %}
+{{form.drink_description.label}}{{form.drink_description()}}
+{% elif session['option_to_modify'] == 'drink_image' %}
+{{form.drink_image.label}}{{form.drink_image()}}
+{% elif session['option_to_modify']=='price' %}
+{{form.price.label}} {{form.price()}}
+{% else %}
+No option chosen!
+{% endif %}
+{{form.submit()}}
+</form>
+
+
+{% endblock %}

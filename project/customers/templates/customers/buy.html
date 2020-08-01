@@ -1,0 +1,55 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+<form method="post">
+  {{form.hidden_tag()}}
+  {{form.name.label}}{{form.name()}}<br>
+  {{form.num.label}}{{form.num()}}<br>
+  {{form.id.label}}{{form.id()}}<br>
+  {{form.order_num.label}}{{form.order_num()}}<br>
+    {{form.submit()}}
+</form>
+{{a}}
+
+{{new_customer.name}} has ordered {{new_dish.name}}
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Customer name</th>
+      <th scope="col">Number of plates per dish</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for list in all_customers %}
+    <tr>
+      <th scope="row">{{ list.id}}</th>
+      <td>{{list.name}}</td>
+      <td>{{list.num}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Dish name</th>
+      <th scope="col">Dish type</th>
+      <th scope="col">Dish Description</th>
+      <th scope="col">Dish price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for list in all_dishes %}
+    <tr>
+      <th scope="row">{{ list.id}}</th>
+      <td>{{list.name}}</td>
+      <td>{{list.dish_type}}</td>
+      <td>{{list.dish_description}}</td>
+      <td>{{list.price}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+  {{form.hidden_tag()}}
+  {{form.option_to_modify.label}}{{form.option_to_modify()}}
+  {{form.submit()}}
+</form>
+
+
+{% endblock %}
