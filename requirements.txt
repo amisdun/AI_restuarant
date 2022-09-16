@@ -15,7 +15,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.1
 jsonify==0.5
 jsonpickle==1.4.1
-Mako==1.1.2
+Mako==1.2.2
 MarkupSafe==1.1.1
 pipenv==2020.6.2
 python-dateutil==2.8.1
